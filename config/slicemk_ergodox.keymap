@@ -4,77 +4,123 @@
 #include <dt-bindings/zmk/outputs.h>
 
 / {
+    ZMK_MACRO(w_teams, wait-ms = <40>; tap-ms = <40>; bindings = <&macro_tap &kp LG(W)>, <&macro_tap &kp T>;)
+    ZMK_MACRO(w_slack, wait-ms = <40>; tap-ms = <40>; bindings = <&macro_tap &kp LG(W)>, <&macro_tap &kp S>;)
+    ZMK_MACRO(ps, wait-ms = <40>; tap-ms = <40>; bindings = <&macro_tap &kp LG(P)>, <&macro_tap &kp S>, <&to 0>;)
+    ZMK_MACRO(pp, wait-ms = <40>; tap-ms = <40>; bindings = <&macro_tap &kp LG(P)>, <&macro_tap &kp P>;)
+    ZMK_MACRO(pw, wait-ms = <40>; tap-ms = <40>; bindings = <&macro_tap &kp LG(P)>, <&macro_tap &kp W>;)
+    ZMK_MACRO(pr, wait-ms = <40>; tap-ms = <40>; bindings = <&macro_tap &kp LG(P)>, <&macro_tap &kp R>;)
+    ZMK_MACRO(mm, wait-ms = <40>; tap-ms = <40>; bindings = <&macro_tap &kp LG(M)>, <&macro_tap &kp M>;)
+
+};
+
+/ {
 	keymap {
 		compatible = "zmk,keymap";
-
-		// This is the default test layer meant for testing that every key on
-		// your keyboard works. Once you have completed this basic test, you can
-		// delete this first section and layer_0 will become your default layer.
-		layer_test {
-			bindings = <
-				&bootloader
-				&kp NUM_0 &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5 &kp NUM_6 &kp NUM_0 &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5 &kp NUM_6
-				&kp NUM_0 &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5 &kp NUM_6 &kp NUM_0 &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5 &kp NUM_6
-				&kp NUM_0 &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5                     &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5 &kp NUM_6
-				&kp NUM_0 &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5 &kp NUM_6 &kp NUM_0 &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5 &kp NUM_6
-				&kp NUM_0 &kp NUM_1 &kp NUM_2 &kp NUM_3 &kp NUM_4                                         &kp NUM_2 &kp NUM_3 &kp NUM_4 &kp NUM_5 &kp NUM_6
-				                                                  &kp NUM_0 &kp NUM_1 &kp NUM_0 &kp NUM_1
-				                                        &kp NUM_3 &kp NUM_4 &kp NUM_2 &kp NUM_2 &kp NUM_3 &kp NUM_4
-				                                                            &kp NUM_5 &kp NUM_5
-			>;
-		};
-
 		layer_0 {
 			bindings = <
 				&bootloader
-				&kp GRAV &kp NUMBER_1 &kp NUMBER_2 &kp NUMBER_3 &kp NUMBER_4 &kp NUMBER_5 &kp PRSC   &none      &kp NUMBER_6 &kp NUMBER_7 &kp NUMBER_8 &kp NUMBER_9 &kp NUMBER_0  &kp K_APP
-				&kp TAB  &kp Q        &kp W        &kp E        &kp R        &kp T        &kp CLCK   &kp M_MUTE &kp Y        &kp U        &kp I        &kp O        &kp P         &kp BSLH
-				&kp ESC  &kp A        &kp S        &kp D        &kp F        &kp G                              &kp H        &kp J        &kp K        &kp L        &kp SEMICOLON &kp BKSP
-				&sl 2    &kp Z        &kp X        &kp C        &kp V        &kp B        &kp M_VOLD &kp M_VOLU &kp N        &kp M        &kp CMMA     &kp DOT      &kp FSLH      &sl 2
-				&none    &none        &kp LALT     &kp LARW     &kp UARW                                                     &kp DARW     &kp RARW     &kp RALT     &none         &to 3
-				                                                             &kp DEL      &kp HOME   &kp END    &kp INS
-				                                                &kp SPC      &kp LCTL     &kp PGUP   &kp PGDN   &kp LSFT     &kp RET
-				                                                                          &kp LGUI   &sl 1
+				&sl 1     &kp NUMBER_1 &kp NUMBER_2 &kp NUMBER_3 &kp NUMBER_4 &kp NUMBER_5 &kp ESC    &kp ESC    &kp NUMBER_6 &kp NUMBER_7 &kp NUMBER_8 &kp NUMBER_9 &kp NUMBER_0 &kp BACKSPACE
+				&kp TAB   &kp FSLH     &kp COMMA    &kp DOT      &kp P        &kp Y        &kp CAPS   &kp RALT   &kp F        &kp G        &kp C        &kp R        &kp L        &sl 1
+				&sl 5     &kp A        &kp O        &kp E        &kp U        &kp I                              &kp D        &kp H        &kp T        &kp N        &kp S        &sl 5
+				&sl 2     &kp SEMI     &kp Q        &kp J        &kp K        &kp X        &sk LSHFT  &kp RSHFT  &kp B        &kp M        &kp W        &kp V        &kp Z        &sl 2
+				&kp LMETA &kp LEFT     &kp RIGHT    &kp LBKT     &kp RBKT                                                     &kp LPAR     &kp RPAR     &kp UP       &kp DOWN     &kp RMETA
+				                                                              &kp LALT     &kp END    &kp PG_UP  &kp LALT
+				                                                 &kp SPACE    &kp LSHFT    &kp HOME   &kp PG_DN  &kp RCTRL    &kp SPACE
+				                                                                           &kp RETURN &kp RETURN
 			>;
 		};
 		layer_1 {
 			bindings = <
 				&bootloader
-				&bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &none &none &to 0 &none &none   &none   &none   &none   &bootloader
-				&bt BT_CLR   &kp F1       &kp F2       &kp F3       &kp F4       &none &none &none &none &kp F13 &kp F14 &kp F15 &kp F16 &out OUT_USB
-				&none        &kp F5       &kp F6       &kp F7       &kp F8       &none             &none &kp F17 &kp F18 &kp F19 &kp F20 &out OUT_BLE
-				&none        &kp F9       &kp F10      &kp F11      &kp F12      &none &none &none &none &kp F21 &kp F22 &kp F23 &kp F24 &out OUT_TOG
-				&none        &none        &none        &none        &none                                &none   &none   &none   &none   &none
-				                                                                 &none &none &none &none
-				                                                    &none        &none &none &none &none &none
-				                                                                       &none &to 0
+				&none &none  &none   &none   &none   &none &to 0    &to 0   &none &none &none &none &none &none
+				&none &kp F1 &kp F2  &kp F3  &kp F4  &none &kp PRSC &kp DEL &none &none &none &none &none &none
+				&none &kp F5 &kp F6  &kp F7  &kp F8  &none                  &none &kp H &kp J &kp K &kp L &none
+				&none &kp F9 &kp F10 &kp F11 &kp F12 &none &none    &none   &none &none &none &none &none &none
+				&none &none  &none   &none   &none                                &none &none &none &none &bootloader
+				                                     &none &none    &none   &none
+				                             &none   &none &none    &none   &none &none
+				                                           &none    &to 0
 			>;
 		};
 		layer_2 {
 			bindings = <
 				&bootloader
-				&none &none &none &none    &none            &none             &none          &to 0            &none &none          &none           &none &none &none
-				&none &none &none &none    &none            &none             &none          &kp C_PLAY_PAUSE &none &none          &none           &none &none &none
-				&none &none &none &kp PLUS &kp EQUAL        &none                                             &none &kp MINUS      &kp UNDERSCORE  &none &none &none
-				&to 0 &none &none &kp LBKT &kp RBKT         &none             &kp C_PREVIOUS &kp C_NEXT       &none &kp LEFT_BRACE &kp RIGHT_BRACE &none &none &to 0
-				&none &none &none &none    &none                                                                    &none          &none           &none &none &none
-				                                            &none             &none          &none            &none
-				                           &kp SINGLE_QUOTE &kp DOUBLE_QUOTES &none          &none            &none &none
-				                                                              &none          &none
+				&none &kp TILD &kp GRAV  &none    &none            &none             &to 0 &to 0 &none     &none    &none    &none     &none &none
+				&none &none    &none     &none    &none            &none             &none &none &none     &none    &none    &none     &none &none
+				&none &none    &kp MINUS &kp PLUS &kp EQUAL        &none                         &none     &none    &kp UP   &none     &none &none
+				&none &kp BSLH &none     &none    &none            &kp UNDER         &none &none &none     &kp LEFT &kp DOWN &kp RIGHT &none &none
+				&none &none    &none     &kp LBRC &kp RBRC                                                 &kp LT   &kp GT   &none     &none &none
+				                                                   &none             &none &none &none
+				                                  &kp SINGLE_QUOTE &kp DOUBLE_QUOTES &none &none &kp LCTRL &none
+				                                                                     &none &none
 			>;
 		};
 		layer_3 {
 			bindings = <
 				&bootloader
-				&none &none     &none        &none     &none    &none &none                &to 0                &none &none        &none        &none        &none        &none
-				&none &none     &none        &none     &none    &none &none                &none                &none &kp NUMBER_7 &kp NUMBER_8 &kp NUMBER_9 &none        &none
-				&none &kp SLASH &kp ASTERISK &kp MINUS &kp PLUS &none                                           &none &kp NUMBER_4 &kp NUMBER_5 &kp NUMBER_6 &kp NUMBER_0 &kp BACKSPACE
-				&none &none     &none        &none     &kp DOT  &none &kp C_BRIGHTNESS_DEC &kp C_BRIGHTNESS_INC &none &kp NUMBER_1 &kp NUMBER_2 &kp NUMBER_3 &none        &none
-				&none &none     &none        &none     &none                                                          &none        &none        &none        &none        &to 0
-				                                                &none &none                &none                &none
-				                                       &none    &none &none                &none                &none &none
-				                                                      &none                &none
+				&none &none     &none        &none     &none    &none &none &to 0     &none &kp ASTERISK &kp SLASH    &kp CARET    &none &kp BACKSPACE
+				&none &none     &none        &none     &none    &none &none &kp EQUAL &none &kp NUMBER_7 &kp NUMBER_8 &kp NUMBER_9 &none &kp PLUS
+				&none &kp SLASH &kp ASTERISK &kp MINUS &kp PLUS &none                 &none &kp NUMBER_4 &kp NUMBER_5 &kp NUMBER_6 &none &kp MINUS
+				&none &none     &none        &none     &kp DOT  &none &none &none     &none &kp NUMBER_1 &kp NUMBER_2 &kp NUMBER_3 &none &none
+				&none &none     &none        &none     &none                                &kp NUMBER_0 &kp DOT      &none        &none &to 0
+				                                                &none &none &none     &none
+				                                       &none    &none &none &none     &none &none
+				                                                      &none &none
+			>;
+		};
+		layer_4 {
+			bindings = <
+				&bootloader
+				&kp C_VOL_UP &none    &none    &none     &none          &none      &to 0            &to 0            &none      &none      &none    &none     &none &kp C_VOL_UP
+				&kp C_VOL_DN &none    &none    &none     &none          &none      &kp C_MUTE       &kp C_MUTE       &none      &none      &none    &none     &none &kp C_VOL_DN
+				&none        &none    &kp UP   &none     &kp M          &kp I                                        &kp I      &kp M      &kp UP   &none     &none &none
+				&mm          &kp LEFT &kp DOWN &kp RIGHT &none          &kp F      &kp C_PLAY_PAUSE &kp C_PLAY_PAUSE &kp F      &kp LEFT   &kp DOWN &kp RIGHT &none &mm
+				&none        &none    &none    &none     &none                                                                  &none      &none    &none     &none &none
+				                                                        &none      &none            &none            &none
+				                                         &kp C_PREVIOUS &kp C_NEXT &none            &none            &kp C_PREV &kp C_NEXT
+				                                                                   &none            &none
+			>;
+		};
+		layer_5 {
+			bindings = <
+				&bootloader
+				&to 4 &none &none &none &none &none &to 0 &to 0 &none &none &none &none &none &to 4
+				&to 7 &none &none &none &none &none &none &none &none &none &none &none &none &to 7
+				&to 6 &none &none &none &none &none             &none &none &none &none &none &to 6
+				&to 2 &none &none &none &none &none &none &to 3 &none &none &none &none &none &to 2
+				&none &none &none &none &none                         &none &none &none &none &none
+				                              &none &none &none &none
+				                        &none &none &none &none &none &to 3
+				                                    &none &none
+			>;
+		};
+		layer_6 {
+			bindings = <
+				&bootloader
+				&kp LG(Q) &kp LG(NUMBER_1) &kp LG(NUMBER_2) &kp LG(NUMBER_3) &kp LG(NUMBER_4) &kp LG(NUMBER_5) &to 0 &to 0 &kp LG(NUMBER_6) &kp LG(NUMBER_7) &kp LG(NUMBER_8) &kp LG(NUMBER_9) &none &kp LG(Q)
+				&ps       &none            &kp LG(NUMBER_5) &kp LG(NUMBER_3) &kp LG(NUMBER_2) &kp LG(NUMBER_1) &none &none &kp LG(NUMBER_1) &kp LG(NUMBER_2) &kp LG(NUMBER_3) &kp LG(NUMBER_5) &none &ps
+				&pr       &none            &kp LG(J)        &kp LG(K)        &none            &kp LG(NUMBER_9)             &kp LG(NUMBER_9) &none            &kp LG(J)        &kt LG(K)        &none &pr
+				&pp       &none            &kp LG(H)        &kp LG(L)        &w_slack         &w_teams         &none &none &w_teams         &w_slack         &kp LG(H)        &kp LG(L)        &none &pp
+				&pw       &none            &none            &kp LG(LBKT)     &kp LG(RBKT)                                                   &kp LG(LBKT)     &kp LG(RBKT)     &none            &none &pw
+				                                                                              &none            &none &none &none
+				                                                             &kp RSFT         &none            &none &none &none            &kp LSFT
+				                                                                                               &none &none
+			>;
+		};
+		layer_7 {
+			bindings = <
+				&bootloader
+				&kp LC(W)     &kp LC(LS(NUMBER_1)) &kp LC(LS(NUMBER_2)) &kp LC(LS(NUMBER_3)) &kp LC(LS(NUMBER_4)) &kp LC(LS(NUMBER_5)) &to 0         &to 0         &kp LC(LS(NUMBER_6)) &none        &kp LC(LS(NUMBER_8)) &kp LC(LS(NUMBER_9)) &none &kp LC(W)
+				&kp LC(PG_UP) &none                &none                &none                &none                &none                &kp LC(LS(N)) &kp LC(LS(N)) &none                &none        &none                &none                &none &kp LC(PG_UP)
+				&kp LC(PG_DN) &none                &none                &none                &none                &none                                            &none                &none        &none                &none                &none &kp LC(PG_DN)
+				&kp LC(T)     &none                &none                &none                &none                &none                &kp LC(N)     &kp LC(N)     &none                &none        &none                &none                &none &kp LC(T)
+				&none         &none                &none                &kp LA(LEFT)         &kp LA(RIGHT)                                                                              &kp LA(LEFT) &kp LA(RIGHT)        &none                &none &none
+				                                                                                                  &none                &none         &none         &none
+				                                                                             &kp LSHFT            &none                &none         &none         &none                &kp RSHFT
+				                                                                                                                       &none         &none
 			>;
 		};
 	};
+
 };
